@@ -90,7 +90,7 @@ def _read_dataset_internal(file_read_func,
   if config.shuffle:
     filename_dataset = filename_dataset.shuffle(
         config.filenames_shuffle_buffer_size)
-  elif num_readers > 1:
+#   elif num_readers > 1:
 #     tf.logging.warning('`shuffle` is false, but the input data stream is '
 #                        'still slightly shuffled since `num_readers` > 1.')
   if filename_shard_fn:
@@ -159,7 +159,7 @@ def read_dataset(file_read_func, input_files, config, filename_shard_fn=None):
       records_datasets.append(records_dataset)
     return tf.data.experimental.sample_from_datasets(records_datasets,
                                                      dataset_weights)
-  else:
+#   else:
 #     tf.logging.info('Reading unweighted datasets: %s' % input_files)
     return _read_dataset_internal(file_read_func, input_files,
                                   config.num_readers, config, filename_shard_fn)
