@@ -139,11 +139,11 @@ class SSDEfficientNetBiFPNKerasFeatureExtractor(
     self._bifpn_node_params = {'combine_method': bifpn_combine_method}
     self._efficientnet_version = efficientnet_version
 
-    logging.info('EfficientDet EfficientNet backbone version: %s',
-                 self._efficientnet_version)
-    logging.info('EfficientDet BiFPN num filters: %d', self._bifpn_num_filters)
-    logging.info('EfficientDet BiFPN num iterations: %d',
-                 self._bifpn_num_iterations)
+#     logging.info('EfficientDet EfficientNet backbone version: %s',
+#                  self._efficientnet_version)
+#     logging.info('EfficientDet BiFPN num filters: %d', self._bifpn_num_filters)
+#     logging.info('EfficientDet BiFPN num iterations: %d',
+#                  self._bifpn_num_iterations)
 
     self._backbone_max_level = min(
         max(_EFFICIENTNET_LEVEL_ENDPOINTS.keys()), bifpn_max_level)
