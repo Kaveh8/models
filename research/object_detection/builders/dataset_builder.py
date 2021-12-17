@@ -77,22 +77,22 @@ def _read_dataset_internal(file_read_func,
     RuntimeError: If no files are found at the supplied path(s).
   """
   filenames = tf.gfile.Glob(input_files)
-  tf.logging.info('Reading record datasets for input file: %s' % input_files)
-  tf.logging.info('Number of filenames to read: %s' % len(filenames))
+#   tf.logging.info('Reading record datasets for input file: %s' % input_files)
+#   tf.logging.info('Number of filenames to read: %s' % len(filenames))
   if not filenames:
     raise RuntimeError('Did not find any input files matching the glob pattern '
                        '{}'.format(input_files))
   if num_readers > len(filenames):
     num_readers = len(filenames)
-    tf.logging.warning('num_readers has been reduced to %d to match input file '
-                       'shards.' % num_readers)
+#     tf.logging.warning('num_readers has been reduced to %d to match input file '
+#                        'shards.' % num_readers)
   filename_dataset = tf.data.Dataset.from_tensor_slices(filenames)
   if config.shuffle:
     filename_dataset = filename_dataset.shuffle(
         config.filenames_shuffle_buffer_size)
   elif num_readers > 1:
-    tf.logging.warning('`shuffle` is false, but the input data stream is '
-                       'still slightly shuffled since `num_readers` > 1.')
+#     tf.logging.warning('`shuffle` is false, but the input data stream is '
+#                        'still slightly shuffled since `num_readers` > 1.')
   if filename_shard_fn:
     filename_dataset = filename_shard_fn(filename_dataset)
 
@@ -129,15 +129,15 @@ def read_dataset(file_read_func, input_files, config, filename_shard_fn=None):
     RuntimeError: If no files are found at the supplied path(s).
   """
   if config.sample_from_datasets_weights:
-    tf.logging.info('Reading weighted datasets: %s' % input_files)
+#     tf.logging.info('Reading weighted datasets: %s' % input_files)
     if len(input_files) != len(config.sample_from_datasets_weights):
       raise ValueError('Expected the number of input files to be the same as '
                        'the number of dataset sample weights. But got '
                        '[input_files, sample_from_datasets_weights]: [' +
                        input_files + ', ' +
                        str(config.sample_from_datasets_weights) + ']')
-    tf.logging.info('Sampling from datasets %s with weights %s' %
-                    (input_files, config.sample_from_datasets_weights))
+#     tf.logging.info('Sampling from datasets %s with weights %s' %
+#                     (input_files, config.sample_from_datasets_weights))
     records_datasets = []
     dataset_weights = []
     for i, input_file in enumerate(input_files):
@@ -145,13 +145,13 @@ def read_dataset(file_read_func, input_files, config, filename_shard_fn=None):
       num_readers = math.ceil(config.num_readers *
                               weight /
                               sum(config.sample_from_datasets_weights))
-      tf.logging.info(
-          'Num readers for dataset [%s]: %d', input_file, num_readers)
+#       tf.logging.info(
+#           'Num readers for dataset [%s]: %d', input_file, num_readers)
       if num_readers == 0:
-        tf.logging.info('Skipping dataset due to zero weights: %s', input_file)
+#         tf.logging.info('Skipping dataset due to zero weights: %s', input_file)
         continue
-      tf.logging.info(
-          'Num readers for dataset [%s]: %d', input_file, num_readers)
+#       tf.logging.info(
+#           'Num readers for dataset [%s]: %d', input_file, num_readers)
       records_dataset = _read_dataset_internal(file_read_func, [input_file],
                                                num_readers, config,
                                                filename_shard_fn)
@@ -160,7 +160,7 @@ def read_dataset(file_read_func, input_files, config, filename_shard_fn=None):
     return tf.data.experimental.sample_from_datasets(records_datasets,
                                                      dataset_weights)
   else:
-    tf.logging.info('Reading unweighted datasets: %s' % input_files)
+#     tf.logging.info('Reading unweighted datasets: %s' % input_files)
     return _read_dataset_internal(file_read_func, input_files,
                                   config.num_readers, config, filename_shard_fn)
 
