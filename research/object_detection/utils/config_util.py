@@ -250,8 +250,8 @@ def save_pipeline_config(pipeline_config, directory):
   pipeline_config_path = os.path.join(directory, "pipeline.config")
   config_text = text_format.MessageToString(pipeline_config)
   with tf.gfile.Open(pipeline_config_path, "wb") as f:
-    tf.logging.info("Writing pipeline config file to %s",
-                    pipeline_config_path)
+#     tf.logging.info("Writing pipeline config file to %s",
+#                     pipeline_config_path)
     f.write(config_text)
 
 
@@ -549,7 +549,7 @@ def merge_external_params_with_configs(configs, hparams=None, kwargs_dict=None):
   if hparams:
     kwargs_dict.update(hparams.values())
   for key, value in kwargs_dict.items():
-    tf.logging.info("Maybe overwriting %s: %s", key, value)
+#     tf.logging.info("Maybe overwriting %s: %s", key, value)
     # pylint: disable=g-explicit-bool-comparison
     if value == "" or value is None:
       continue
@@ -559,7 +559,7 @@ def merge_external_params_with_configs(configs, hparams=None, kwargs_dict=None):
     elif _is_generic_key(key):
       _update_generic(configs, key, value)
     else:
-      tf.logging.info("Ignoring config override key: %s", key)
+#       tf.logging.info("Ignoring config override key: %s", key)
   return configs
 
 
@@ -1121,9 +1121,9 @@ def _update_peak_max_pool_kernel_size(model_config, kernel_size):
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.peak_max_pool_kernel_size = kernel_size
     else:
-      tf.logging.warning("Ignoring config override key for "
-                         "peak_max_pool_kernel_size since there are multiple "
-                         "keypoint estimation tasks")
+#       tf.logging.warning("Ignoring config override key for "
+#                          "peak_max_pool_kernel_size since there are multiple "
+#                          "keypoint estimation tasks")
 
 
 def _update_candidate_search_scale(model_config, search_scale):
@@ -1134,9 +1134,9 @@ def _update_candidate_search_scale(model_config, search_scale):
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.candidate_search_scale = search_scale
     else:
-      tf.logging.warning("Ignoring config override key for "
-                         "candidate_search_scale since there are multiple "
-                         "keypoint estimation tasks")
+#       tf.logging.warning("Ignoring config override key for "
+#                          "candidate_search_scale since there are multiple "
+#                          "keypoint estimation tasks")
 
 
 def _update_candidate_ranking_mode(model_config, mode):
@@ -1153,9 +1153,9 @@ def _update_candidate_ranking_mode(model_config, mode):
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.candidate_ranking_mode = mode
     else:
-      tf.logging.warning("Ignoring config override key for "
-                         "candidate_ranking_mode since there are multiple "
-                         "keypoint estimation tasks")
+#       tf.logging.warning("Ignoring config override key for "
+#                          "candidate_ranking_mode since there are multiple "
+#                          "keypoint estimation tasks")
 
 
 def _update_score_distance_offset(model_config, offset):
@@ -1166,9 +1166,9 @@ def _update_score_distance_offset(model_config, offset):
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.score_distance_offset = offset
     else:
-      tf.logging.warning("Ignoring config override key for "
-                         "score_distance_offset since there are multiple "
-                         "keypoint estimation tasks")
+#       tf.logging.warning("Ignoring config override key for "
+#                          "score_distance_offset since there are multiple "
+#                          "keypoint estimation tasks")
 
 
 def _update_box_scale(model_config, box_scale):
@@ -1179,8 +1179,8 @@ def _update_box_scale(model_config, box_scale):
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.box_scale = box_scale
     else:
-      tf.logging.warning("Ignoring config override key for box_scale since "
-                         "there are multiple keypoint estimation tasks")
+#       tf.logging.warning("Ignoring config override key for box_scale since "
+#                          "there are multiple keypoint estimation tasks")
 
 
 def _update_keypoint_candidate_score_threshold(model_config, threshold):
@@ -1191,9 +1191,9 @@ def _update_keypoint_candidate_score_threshold(model_config, threshold):
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.keypoint_candidate_score_threshold = threshold
     else:
-      tf.logging.warning("Ignoring config override key for "
-                         "keypoint_candidate_score_threshold since there are "
-                         "multiple keypoint estimation tasks")
+#       tf.logging.warning("Ignoring config override key for "
+#                          "keypoint_candidate_score_threshold since there are "
+#                          "multiple keypoint estimation tasks")
 
 
 def _update_rescore_instances(model_config, should_rescore):
@@ -1206,9 +1206,9 @@ def _update_rescore_instances(model_config, should_rescore):
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.rescore_instances = should_rescore
     else:
-      tf.logging.warning("Ignoring config override key for "
-                         "rescore_instances since there are multiple keypoint "
-                         "estimation tasks")
+#       tf.logging.warning("Ignoring config override key for "
+#                          "rescore_instances since there are multiple keypoint "
+#                          "estimation tasks")
 
 
 def _update_unmatched_keypoint_score(model_config, score):
@@ -1218,9 +1218,9 @@ def _update_unmatched_keypoint_score(model_config, score):
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.unmatched_keypoint_score = score
     else:
-      tf.logging.warning("Ignoring config override key for "
-                         "unmatched_keypoint_score since there are multiple "
-                         "keypoint estimation tasks")
+#       tf.logging.warning("Ignoring config override key for "
+#                          "unmatched_keypoint_score since there are multiple "
+#                          "keypoint estimation tasks")
 
 
 def _update_score_distance_multiplier(model_config, score_distance_multiplier):
@@ -1231,9 +1231,9 @@ def _update_score_distance_multiplier(model_config, score_distance_multiplier):
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.score_distance_multiplier = score_distance_multiplier
     else:
-      tf.logging.warning("Ignoring config override key for "
-                         "score_distance_multiplier since there are multiple "
-                         "keypoint estimation tasks")
+#       tf.logging.warning("Ignoring config override key for "
+#                          "score_distance_multiplier since there are multiple "
+#                          "keypoint estimation tasks")
   else:
     raise ValueError(
         "Unsupported meta_architecture type: %s" % meta_architecture)
@@ -1247,9 +1247,9 @@ def _update_std_dev_multiplier(model_config, std_dev_multiplier):
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.std_dev_multiplier = std_dev_multiplier
     else:
-      tf.logging.warning("Ignoring config override key for "
-                         "std_dev_multiplier since there are multiple "
-                         "keypoint estimation tasks")
+#       tf.logging.warning("Ignoring config override key for "
+#                          "std_dev_multiplier since there are multiple "
+#                          "keypoint estimation tasks")
   else:
     raise ValueError(
         "Unsupported meta_architecture type: %s" % meta_architecture)
@@ -1263,9 +1263,9 @@ def _update_rescoring_threshold(model_config, rescoring_threshold):
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.rescoring_threshold = rescoring_threshold
     else:
-      tf.logging.warning("Ignoring config override key for "
-                         "rescoring_threshold since there are multiple "
-                         "keypoint estimation tasks")
+#       tf.logging.warning("Ignoring config override key for "
+#                          "rescoring_threshold since there are multiple "
+#                          "keypoint estimation tasks")
   else:
     raise ValueError(
         "Unsupported meta_architecture type: %s" % meta_architecture)
