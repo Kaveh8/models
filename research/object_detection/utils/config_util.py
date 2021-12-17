@@ -1120,7 +1120,7 @@ def _update_peak_max_pool_kernel_size(model_config, kernel_size):
     if len(model_config.center_net.keypoint_estimation_task) == 1:
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.peak_max_pool_kernel_size = kernel_size
-    else:
+#     else:
 #       tf.logging.warning("Ignoring config override key for "
 #                          "peak_max_pool_kernel_size since there are multiple "
 #                          "keypoint estimation tasks")
@@ -1133,7 +1133,7 @@ def _update_candidate_search_scale(model_config, search_scale):
     if len(model_config.center_net.keypoint_estimation_task) == 1:
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.candidate_search_scale = search_scale
-    else:
+#     else:
 #       tf.logging.warning("Ignoring config override key for "
 #                          "candidate_search_scale since there are multiple "
 #                          "keypoint estimation tasks")
@@ -1152,7 +1152,7 @@ def _update_candidate_ranking_mode(model_config, mode):
     if len(model_config.center_net.keypoint_estimation_task) == 1:
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.candidate_ranking_mode = mode
-    else:
+#     else:
 #       tf.logging.warning("Ignoring config override key for "
 #                          "candidate_ranking_mode since there are multiple "
 #                          "keypoint estimation tasks")
@@ -1165,7 +1165,7 @@ def _update_score_distance_offset(model_config, offset):
     if len(model_config.center_net.keypoint_estimation_task) == 1:
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.score_distance_offset = offset
-    else:
+#     else:
 #       tf.logging.warning("Ignoring config override key for "
 #                          "score_distance_offset since there are multiple "
 #                          "keypoint estimation tasks")
@@ -1178,7 +1178,7 @@ def _update_box_scale(model_config, box_scale):
     if len(model_config.center_net.keypoint_estimation_task) == 1:
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.box_scale = box_scale
-    else:
+#     else:
 #       tf.logging.warning("Ignoring config override key for box_scale since "
 #                          "there are multiple keypoint estimation tasks")
 
@@ -1190,7 +1190,7 @@ def _update_keypoint_candidate_score_threshold(model_config, threshold):
     if len(model_config.center_net.keypoint_estimation_task) == 1:
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.keypoint_candidate_score_threshold = threshold
-    else:
+#     else:
 #       tf.logging.warning("Ignoring config override key for "
 #                          "keypoint_candidate_score_threshold since there are "
 #                          "multiple keypoint estimation tasks")
@@ -1205,7 +1205,7 @@ def _update_rescore_instances(model_config, should_rescore):
     if len(model_config.center_net.keypoint_estimation_task) == 1:
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.rescore_instances = should_rescore
-    else:
+#     else:
 #       tf.logging.warning("Ignoring config override key for "
 #                          "rescore_instances since there are multiple keypoint "
 #                          "estimation tasks")
@@ -1217,7 +1217,7 @@ def _update_unmatched_keypoint_score(model_config, score):
     if len(model_config.center_net.keypoint_estimation_task) == 1:
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.unmatched_keypoint_score = score
-    else:
+#     else:
 #       tf.logging.warning("Ignoring config override key for "
 #                          "unmatched_keypoint_score since there are multiple "
 #                          "keypoint estimation tasks")
@@ -1230,7 +1230,7 @@ def _update_score_distance_multiplier(model_config, score_distance_multiplier):
     if len(model_config.center_net.keypoint_estimation_task) == 1:
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.score_distance_multiplier = score_distance_multiplier
-    else:
+#     else:
 #       tf.logging.warning("Ignoring config override key for "
 #                          "score_distance_multiplier since there are multiple "
 #                          "keypoint estimation tasks")
@@ -1246,7 +1246,7 @@ def _update_std_dev_multiplier(model_config, std_dev_multiplier):
     if len(model_config.center_net.keypoint_estimation_task) == 1:
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.std_dev_multiplier = std_dev_multiplier
-    else:
+#     else:
 #       tf.logging.warning("Ignoring config override key for "
 #                          "std_dev_multiplier since there are multiple "
 #                          "keypoint estimation tasks")
@@ -1262,7 +1262,7 @@ def _update_rescoring_threshold(model_config, rescoring_threshold):
     if len(model_config.center_net.keypoint_estimation_task) == 1:
       kpt_estimation_task = model_config.center_net.keypoint_estimation_task[0]
       kpt_estimation_task.rescoring_threshold = rescoring_threshold
-    else:
+#     else:
 #       tf.logging.warning("Ignoring config override key for "
 #                          "rescoring_threshold since there are multiple "
 #                          "keypoint estimation tasks")
