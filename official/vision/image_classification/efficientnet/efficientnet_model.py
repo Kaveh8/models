@@ -144,7 +144,7 @@ def round_filters(filters: int, config: ModelConfig) -> int:
   # Make sure that round down does not go down by more than 10%.
   if new_filters < 0.9 * filters:
     new_filters += divisor
-  logging.info('round_filter input=%s output=%s', orig_filters, new_filters)
+  #logging.info('round_filter input=%s output=%s', orig_filters, new_filters)
   return int(new_filters)
 
 
@@ -454,7 +454,7 @@ class EfficientNet(tf.keras.Model):
     # Cast to float32 in case we have a different model dtype
     output = tf.cast(output, tf.float32)
 
-    logging.info('Building model %s with params %s', model_name, self.config)
+    #logging.info('Building model %s with params %s', model_name, self.config)
 
     super(EfficientNet, self).__init__(
         inputs=image_input, outputs=output, name=model_name)
