@@ -1097,8 +1097,8 @@ def _build_center_net_model(center_net_config, is_training, add_summaries):
         center_net_config.object_detection_task)
 
   if center_net_config.HasField('deepmac_mask_estimation'):
-    logging.warn(('Building experimental DeepMAC meta-arch.'
-                  ' Some features may be omitted.'))
+    #logging.warn(('Building experimental DeepMAC meta-arch.'
+    #              ' Some features may be omitted.'))
     deepmac_params = deepmac_meta_arch.deepmac_proto_to_params(
         center_net_config.deepmac_mask_estimation)
     return deepmac_meta_arch.DeepMACMetaArch(
